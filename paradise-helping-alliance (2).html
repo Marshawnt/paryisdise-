@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Paryisdise Helping Alliance</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F9F4EC;
+      --warm-white: #FDFAF5;
+      --gold: #C8973A;
+      --gold-light: #E5B96A;
+      --deep-green: #1A3328;
+      --mid-green: #2E5545;
+      --sage: #6B8F71;
+      --sage-light: #A8C5A0;
+      --brown: #5C3D2E;
+      --text-dark: #1C1C1C;
+      --text-mid: #4A4A4A;
+      --text-light: #7A7A7A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.2rem 4rem;
+      background: rgba(249,244,236,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,151,58,0.2);
+      animation: fadeDown 0.8s ease both;
+    }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--deep-green);
+      color: var(--cream) !important;
+      padding: 0.5rem 1.4rem !important;
+      border-radius: 2px;
+      text-transform: uppercase !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em !important;
+      transition: background 0.3s !important;
+    }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--deep-green) !important; }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      background: var(--deep-green);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 9rem 5rem 5rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left::before {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,151,58,0.15) 0%, transparent 70%);
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute; bottom: 40px; left: 40px;
+      width: 200px; height: 200px;
+      border: 1px solid rgba(200,151,58,0.2);
+      border-radius: 50%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.9s 0.3s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 4.5vw, 5.2rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 2rem;
+      animation: fadeUp 0.9s 0.5s ease both;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(249,244,236,0.7);
+      max-width: 400px;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.9s 0.7s ease both;
+    }
+
+    .hero-btns {
+      display: flex; gap: 1rem;
+      animation: fadeUp 0.9s 0.9s ease both;
+    }
+    .btn-primary {
+      background: var(--gold);
+      color: var(--deep-green);
+      padding: 0.9rem 2.2rem;
+      border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      border: 1px solid rgba(249,244,236,0.4);
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-right {
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .hero-illustration {
+      width: 100%; height: 100%;
+      position: absolute; top: 0; left: 0;
+    }
+
+    /* SVG Illustration fills right side */
+    .hero-stat-strip {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: var(--warm-white);
+      padding: 2rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem; border-top: 1px solid rgba(200,151,58,0.2);
+      animation: fadeUp 1s 1.1s ease both;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      display: block;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+
+    /* ---- MISSION BAND ---- */
+    .mission-band {
+      background: var(--gold);
+      padding: 1.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      overflow: hidden;
+    }
+    .mission-band-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--deep-green);
+      white-space: nowrap;
+      animation: marquee 25s linear infinite;
+    }
+    .marquee-wrap { overflow: hidden; flex: 1; }
+    @keyframes marquee { 0%{transform:translateX(60%)} 100%{transform:translateX(-100%)} }
+
+    /* ---- SECTIONS SHARED ---- */
+    section { padding: 7rem 4rem; }
+
+    .section-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--deep-green);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--sage); }
+    .section-body {
+      font-size: 0.98rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      max-width: 540px;
+    }
+
+    /* ---- ABOUT ---- */
+    .about {
+      background: var(--warm-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--deep-green);
+      border-radius: 2px;
+      padding: 3rem;
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12rem;
+      color: rgba(200,151,58,0.12);
+      position: absolute;
+      top: -2rem;
+      left: 1rem;
+      line-height: 1;
+    }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--cream);
+      position: relative;
+      z-index: 1;
+    }
+    .about-quote-attr {
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .value-chip {
+      background: var(--cream);
+      border: 1px solid rgba(200,151,58,0.25);
+      padding: 0.8rem 1rem;
+      font-size: 0.82rem;
+      color: var(--deep-green);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .value-chip::before {
+      content: '◆';
+      font-size: 0.45rem;
+      color: var(--gold);
+    }
+
+    /* ---- PROGRAMS ---- */
+    .programs {
+      background: var(--deep-green);
+      color: var(--cream);
+    }
+    .programs .section-title { color: var(--cream); }
+    .programs .section-body { color: rgba(249,244,236,0.65); }
+
+    .programs-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      align-items: end;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(200,151,58,0.15);
+    }
+    .program-card {
+      background: rgba(26,51,40,0.9);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+      cursor: default;
+    }
+    .program-card:hover { background: rgba(46,85,69,0.9); }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .program-card:hover::before { transform: scaleX(1); }
+
+    .program-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+    .program-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+    .program-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(249,244,236,0.6);
+    }
+    .program-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .program-link:hover { color: var(--gold-light); }
+
+    /* ---- IMPACT ---- */
+    .impact { background: var(--cream); }
+    .impact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .impact-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .impact-num-box {
+      border-left: 3px solid var(--gold);
+      padding-left: 1.2rem;
+    }
+    .impact-num-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--deep-green);
+      line-height: 1;
+    }
+    .impact-num-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 0.3rem;
+    }
+
+    .impact-testimonials { display: grid; gap: 1.5rem; }
+    .testimonial {
+      background: var(--warm-white);
+      padding: 2rem;
+      border-radius: 2px;
+      border-left: 3px solid var(--sage-light);
+    }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+    }
+    .testimonial-author {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ---- GET INVOLVED ---- */
+    .involved { background: var(--warm-white); }
+    .involved-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+    .involved-card {
+      border: 1px solid rgba(107,143,113,0.25);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: all 0.3s;
+      background: var(--warm-white);
+    }
+    .involved-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(26,51,40,0.08);
+    }
+    .involved-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(200,151,58,0.2);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .involved-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--deep-green);
+      margin-bottom: 0.8rem;
+    }
+    .involved-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+    .involved-action {
+      margin-top: 1.5rem;
+      display: inline-block;
+      background: var(--deep-green);
+      color: var(--cream);
+      padding: 0.65rem 1.4rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .involved-action:hover { background: var(--gold); color: var(--deep-green); }
+
+    /* ---- DONATE BANNER ---- */
+    .donate-banner {
+      background: var(--mid-green);
+      padding: 6rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .donate-banner::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 900px; height: 900px;
+      background: radial-gradient(circle, rgba(200,151,58,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .donate-banner .section-title { color: var(--cream); text-align: center; }
+    .donate-banner .section-tag { text-align: center; display: block; }
+    .donate-tagline {
+      font-size: 1rem;
+      color: rgba(249,244,236,0.7);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .donate-tiers {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .tier-btn {
+      background: transparent;
+      border: 1px solid rgba(200,151,58,0.5);
+      color: var(--gold);
+      padding: 0.6rem 1.6rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tier-btn:hover, .tier-btn.active {
+      background: var(--gold);
+      color: var(--deep-green);
+      border-color: var(--gold);
+    }
+
+    /* ---- CONTACT ---- */
+    .contact {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-form { display: grid; gap: 1.2rem; }
+    .form-group { display: grid; gap: 0.4rem; }
+    .form-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+    .form-input, .form-textarea {
+      background: var(--warm-white);
+      border: 1px solid rgba(107,143,113,0.3);
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      outline: none;
+      transition: border-color 0.3s;
+      width: 100%;
+    }
+    .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .contact-info { padding-top: 0.5rem; }
+    .contact-info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(107,143,113,0.15);
+    }
+    .contact-info-icon {
+      width: 40px; height: 40px;
+      background: var(--deep-green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-info-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+    .contact-info-value {
+      font-size: 0.92rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      background: var(--deep-green);
+      padding: 4rem 4rem 2rem;
+      color: rgba(249,244,236,0.6);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(200,151,58,0.15);
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .footer-brand span { color: var(--gold); }
+    .footer-desc {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(249,244,236,0.55);
+      margin-bottom: 1.5rem;
+    }
+    .footer-heading {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .footer-links { list-style: none; display: grid; gap: 0.7rem; }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(249,244,236,0.55);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+    }
+    .social-links { display: flex; gap: 1rem; }
+    .social-link {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(200,151,58,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(249,244,236,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ---- SCROLL REVEAL ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 2rem 3rem; }
+      .hero-right { min-height: 280px; }
+      .hero-stat-strip { grid-template-columns: 1fr 1fr 1fr; padding: 1.5rem; }
+      section { padding: 4rem 1.5rem; }
+      .about, .impact-inner, .contact { grid-template-columns: 1fr; gap: 3rem; }
+      .programs-header, .programs-grid { grid-template-columns: 1fr; }
+      .programs-grid { gap: 1px; }
+      .involved-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .mission-band { padding: 1.2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Paryisdise <span>Helping</span> Alliance</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#involved">Get Involved</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#donate" class="nav-cta">Donate</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <span class="hero-eyebrow">Non-Profit Organisation</span>
+    <h1 class="hero-title">Building a <em>Better World</em>, Together</h1>
+    <p class="hero-desc">Paryisdise Helping Alliance is dedicated to empowering communities, uplifting lives, and creating lasting change through compassionate action and unwavering solidarity.</p>
+    <div class="hero-btns">
+      <a href="#programs" class="btn-primary">Our Programs</a>
+      <a href="#donate" class="btn-outline">Donate Now</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- SVG Nature / Community Illustration -->
+    <svg class="hero-illustration" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <rect width="600" height="700" fill="#EDE5D8"/>
+      <!-- Sky gradient -->
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#D4EAC8"/>
+          <stop offset="100%" stop-color="#EDE5D8"/>
+        </linearGradient>
+        <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6B8F71"/>
+          <stop offset="100%" stop-color="#4A6B50"/>
+        </linearGradient>
+      </defs>
+      <rect width="600" height="700" fill="url(#sky)"/>
+      <!-- Ground -->
+      <ellipse cx="300" cy="680" rx="380" ry="120" fill="url(#ground)"/>
+      <!-- Sun -->
+      <circle cx="480" cy="100" r="60" fill="#E5B96A" opacity="0.35"/>
+      <circle cx="480" cy="100" r="40" fill="#E5B96A" opacity="0.55"/>
+      <!-- Large tree left -->
+      <rect x="100" y="300" width="22" height="180" fill="#5C3D2E" rx="4"/>
+      <ellipse cx="111" cy="280" rx="65" ry="85" fill="#2E5545" opacity="0.9"/>
+      <ellipse cx="111" cy="260" rx="45" ry="65" fill="#3D7060"/>
+      <!-- Large tree right -->
+      <rect x="450" y="330" width="18" height="150" fill="#5C3D2E" rx="3"/>
+      <ellipse cx="459" cy="310" rx="55" ry="72" fill="#2E5545" opacity="0.9"/>
+      <ellipse cx="459" cy="293" rx="38" ry="55" fill="#3D7060"/>
+      <!-- Small tree mid -->
+      <rect x="280" y="380" width="14" height="110" fill="#5C3D2E" rx="3"/>
+      <ellipse cx="287" cy="364" rx="42" ry="56" fill="#1A3328"/>
+      <!-- People silhouettes -->
+      <!-- Person 1 -->
+      <circle cx="200" cy="470" r="18" fill="#1A3328"/>
+      <rect x="190" y="488" width="20" height="50" rx="6" fill="#1A3328"/>
+      <!-- Person 2 -->
+      <circle cx="260" cy="465" r="18" fill="#5C3D2E"/>
+      <rect x="250" y="483" width="20" height="50" rx="6" fill="#5C3D2E"/>
+      <!-- Person 3 -->
+      <circle cx="340" cy="468" r="18" fill="#2E5545"/>
+      <rect x="330" y="486" width="20" height="50" rx="6" fill="#2E5545"/>
+      <!-- Holding hands lines -->
+      <path d="M210 508 Q235 495 250 508" stroke="#C8973A" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <path d="M270 503 Q305 490 330 503" stroke="#C8973A" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <!-- Birds -->
+      <path d="M150 140 Q160 133 170 140" stroke="#2E5545" stroke-width="2" fill="none"/>
+      <path d="M175 125 Q187 118 199 125" stroke="#2E5545" stroke-width="2" fill="none"/>
+      <path d="M370 100 Q380 93 390 100" stroke="#2E5545" stroke-width="2" fill="none"/>
+      <!-- Stars / sparkles -->
+      <circle cx="310" cy="80" r="3" fill="#C8973A" opacity="0.7"/>
+      <circle cx="370" cy="160" r="2" fill="#C8973A" opacity="0.5"/>
+      <circle cx="200" cy="200" r="2" fill="#C8973A" opacity="0.4"/>
+    </svg>
+    <div class="hero-stat-strip reveal">
+      <div class="stat-item">
+        <span class="stat-num">5K+</span>
+        <span class="stat-label">Lives Touched</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label">Programs</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">8</span>
+        <span class="stat-label">Communities</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION BAND -->
+<div class="mission-band">
+  <div class="marquee-wrap">
+    <p class="mission-band-text">
+      ◆ Compassion in Action &nbsp;&nbsp;&nbsp; ◆ Building Stronger Communities &nbsp;&nbsp;&nbsp; ◆ Empowering Every Individual &nbsp;&nbsp;&nbsp; ◆ Hope for Tomorrow &nbsp;&nbsp;&nbsp; ◆ Uniting Hearts, Changing Lives &nbsp;&nbsp;&nbsp;
+    </p>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-visual reveal">
+    <div class="about-card">
+      <p class="about-quote">"Every person deserves a hand to hold, a voice that listens, and a community that cares. That is the paryisdise we work to build."</p>
+      <p class="about-quote-attr">— Founder, Paryisdise Helping Alliance</p>
+    </div>
+    <div class="about-values">
+      <div class="value-chip">Compassion</div>
+      <div class="value-chip">Integrity</div>
+      <div class="value-chip">Community</div>
+      <div class="value-chip">Empowerment</div>
+      <div class="value-chip">Inclusivity</div>
+      <div class="value-chip">Sustainability</div>
+    </div>
+  </div>
+  <div class="about-content reveal">
+    <span class="section-tag">Who We Are</span>
+    <h2 class="section-title">A Community Built on <em>Care & Hope</em></h2>
+    <p class="section-body">Paryisdise Helping Alliance is a non-profit organisation dedicated to transforming lives through targeted community programs, humanitarian aid, and long-term empowerment initiatives. We believe that every individual, regardless of circumstance, deserves access to opportunities, support, and dignity.</p>
+    <br/>
+    <p class="section-body">Founded on the principles of compassion and solidarity, we work alongside communities — not just for them — to create systemic change that lasts. Our volunteers, donors, and partners form a network of hope across every community we serve.</p>
+    <br/>
+    <a href="#programs" class="btn-primary" style="margin-top:1rem;">Explore Our Work</a>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="programs-header">
+    <div class="reveal">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">Programs That <em>Transform</em> Lives</h2>
+    </div>
+    <div class="reveal">
+      <p class="section-body">Our programs are designed to address the root causes of inequality while providing immediate relief to those in need. Each initiative is community-led and impact-driven.</p>
+    </div>
+  </div>
+  <div class="programs-grid reveal">
+    <div class="program-card">
+      <div class="program-icon">🌿</div>
+      <h3 class="program-title">Food & Nutrition</h3>
+      <p class="program-desc">Providing nutritious meals, food banks, and agricultural support to families facing food insecurity across our partner communities.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">📚</div>
+      <h3 class="program-title">Education Access</h3>
+      <p class="program-desc">Scholarships, school supplies, tutoring, and literacy programs ensuring every child and adult has access to quality education.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">🏥</div>
+      <h3 class="program-title">Health & Wellness</h3>
+      <p class="program-desc">Free clinics, mental health support, and wellness workshops bringing quality healthcare to underserved populations.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">🏠</div>
+      <h3 class="program-title">Shelter & Housing</h3>
+      <p class="program-desc">Emergency shelter, transitional housing, and home improvement initiatives giving families safe and stable places to live.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">💼</div>
+      <h3 class="program-title">Livelihood Skills</h3>
+      <p class="program-desc">Vocational training, micro-financing, and entrepreneurship programs that open doors to economic independence.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+    <div class="program-card">
+      <div class="program-icon">🤝</div>
+      <h3 class="program-title">Youth Empowerment</h3>
+      <p class="program-desc">Mentorship, sports, arts, and leadership programs nurturing the next generation of compassionate changemakers.</p>
+      <a href="#contact" class="program-link">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact" id="impact">
+  <div class="impact-inner">
+    <div class="reveal">
+      <span class="section-tag">Our Impact</span>
+      <h2 class="section-title">Measuring What <em>Matters</em></h2>
+      <p class="section-body" style="margin-bottom:3rem;">Every number represents a real person whose life has been touched by our collective effort. Here is what we have achieved together so far.</p>
+      <div class="impact-numbers">
+        <div class="impact-num-box">
+          <span class="impact-num-big">5,200+</span>
+          <div class="impact-num-label">People Served</div>
+        </div>
+        <div class="impact-num-box">
+          <span class="impact-num-big">1,800+</span>
+          <div class="impact-num-label">Families Helped</div>
+        </div>
+        <div class="impact-num-box">
+          <span class="impact-num-big">340+</span>
+          <div class="impact-num-label">Volunteers</div>
+        </div>
+        <div class="impact-num-box">
+          <span class="impact-num-big">8</span>
+          <div class="impact-num-label">Communities Active</div>
+        </div>
+      </div>
+    </div>
+    <div class="impact-testimonials reveal">
+      <div class="testimonial">
+        <p class="testimonial-text">"Paryisdise Helping Alliance gave my children the school supplies they needed. For the first time, they went to school with confidence. I will never forget that kindness."</p>
+        <span class="testimonial-author">— Sarah M., Community Member</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"The vocational training program helped me start my own small business. I now provide for my family. This organisation truly changes lives from the inside out."</p>
+        <span class="testimonial-author">— James O., Program Graduate</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">"As a volunteer, I have seen firsthand how thoughtfully these programs are designed. The people behind PHA genuinely care — and it shows in everything they do."</p>
+        <span class="testimonial-author">— Dr. Amara L., Volunteer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="involved" id="involved">
+  <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto;">
+    <span class="section-tag">Join Us</span>
+    <h2 class="section-title">There Are Many Ways to <em>Help</em></h2>
+    <p class="section-body" style="margin:0 auto;">Whether you have time, skills, or resources to share, your contribution makes a real difference. Together we can go further.</p>
+  </div>
+  <div class="involved-grid reveal">
+    <div class="involved-card">
+      <div class="involved-num">01</div>
+      <h3 class="involved-title">Volunteer</h3>
+      <p class="involved-desc">Give your time and talent to our programs. From field work to administrative support, every hour counts and every skill has a place.</p>
+      <a href="#contact" class="involved-action">Become a Volunteer</a>
+    </div>
+    <div class="involved-card">
+      <div class="involved-num">02</div>
+      <h3 class="involved-title">Donate</h3>
+      <p class="involved-desc">Your financial gift, no matter the size, funds our programs and ensures we can continue reaching those who need us most.</p>
+      <a href="#donate" class="involved-action">Make a Donation</a>
+    </div>
+    <div class="involved-card">
+      <div class="involved-num">03</div>
+      <h3 class="involved-title">Partner With Us</h3>
+      <p class="involved-desc">Organisations, businesses, and institutions can partner with us to amplify impact through resources, networks, and shared goals.</p>
+      <a href="#contact" class="involved-action">Become a Partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE BANNER -->
+<section class="donate-banner" id="donate">
+  <span class="section-tag">Make a Difference</span>
+  <h2 class="section-title reveal">Your Gift Builds <em>Paryisdise</em></h2>
+  <p class="donate-tagline reveal">Every donation goes directly to our programs. Choose an amount and help us reach more families, feed more children, and create more opportunities.</p>
+  <div class="donate-tiers reveal">
+    <button class="tier-btn">$10</button>
+    <button class="tier-btn active">$25</button>
+    <button class="tier-btn">$50</button>
+    <button class="tier-btn">$100</button>
+    <button class="tier-btn">Custom</button>
+  </div>
+  <a href="#contact" class="btn-primary reveal" style="font-size:0.9rem;padding:1rem 3rem;">Donate Now</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <span class="section-tag">Reach Out</span>
+    <h2 class="section-title">Let's <em>Connect</em></h2>
+    <p class="section-body" style="margin-bottom:2.5rem;">Have questions about our programs? Want to volunteer, partner, or donate? We'd love to hear from you. Fill out the form and our team will get back to you soon.</p>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">📍</div>
+      <div>
+        <div class="contact-info-label">Address</div>
+        <div class="contact-info-value">Paryisdise Helping Alliance<br/>123 Community Road, City, Country</div>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">✉️</div>
+      <div>
+        <div class="contact-info-label">Email</div>
+        <div class="contact-info-value">info@paryisdisehelpingalliance.org</div>
+      </div>
+    </div>
+    <div class="contact-info-item">
+      <div class="contact-info-icon">📞</div>
+      <div>
+        <div class="contact-info-label">Phone</div>
+        <div class="contact-info-value">+1 (555) 000-0000</div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="Your full name"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-input" placeholder="your@email.com"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-input" placeholder="How can we help?"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us about your interest…"></textarea>
+      </div>
+      <button class="btn-primary" style="width:100%;border:none;cursor:pointer;" onclick="alert('Thank you for reaching out! We will contact you shortly.')">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand">Paryisdise <span>Helping</span> Alliance</div>
+      <p class="footer-desc">A non-profit organisation dedicated to empowering communities, uplifting lives, and building a more compassionate world — one act of kindness at a time.</p>
+      <div class="social-links">
+        <a href="#" class="social-link">f</a>
+        <a href="#" class="social-link">𝕏</a>
+        <a href="#" class="social-link">in</a>
+        <a href="#" class="social-link">▶</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Programs</div>
+      <ul class="footer-links">
+        <li><a href="#programs">Food & Nutrition</a></li>
+        <li><a href="#programs">Education</a></li>
+        <li><a href="#programs">Health & Wellness</a></li>
+        <li><a href="#programs">Shelter</a></li>
+        <li><a href="#programs">Livelihood</a></li>
+        <li><a href="#programs">Youth</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Organisation</div>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#impact">Our Impact</a></li>
+        <li><a href="#involved">Volunteer</a></li>
+        <li><a href="#involved">Partner</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Give</div>
+      <ul class="footer-links">
+        <li><a href="#donate">Donate Now</a></li>
+        <li><a href="#donate">Monthly Giving</a></li>
+        <li><a href="#donate">Corporate Giving</a></li>
+        <li><a href="#donate">In-Kind Donations</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Paryisdise Helping Alliance. All rights reserved. Registered Non-Profit Organisation.</span>
+    <span>Made with ♥ for our community</span>
+  </div>
+</footer>
+
+<script>
+  // Donate tier toggle
+  document.querySelectorAll('.tier-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
